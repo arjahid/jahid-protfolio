@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaReact } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import pic from '../assets/Gemini_Generated_Image_rx4ucmrx4ucmrx4u.png'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -18,11 +17,9 @@ const Navbar = () => {
     <nav className=" w-full z-50 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto flex justify-between items-center p-4 md:p-6 bg-white/70 dark:bg-slate-900/60 border-b border-slate-100">
         <a href="/" className="flex items-center gap-3">
-          <img
-            src={pic}
-            alt="Md. Jahid Hasan"
-            className="inline-block w-8 h-8 rounded-full object-cover shadow-lg"
-          />
+          <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white shadow-lg">
+            <FaReact className="w-5 h-5 text-primary" aria-hidden="true" />
+          </span>
           <span className="text-lg font-semibold text-slate-900">Md. Jahid Hasan</span>
         </a>
 
