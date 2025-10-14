@@ -17,9 +17,7 @@ const Navbar = () => {
     <nav className=" w-full z-50 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto flex justify-between items-center p-4 md:p-6 bg-white/70 dark:bg-slate-900/60 border-b border-slate-100">
         <a href="/" className="flex items-center gap-3">
-          <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white shadow-lg">
-            <FaReact className="w-5 h-5 text-primary" aria-hidden="true" />
-          </span>
+         
           <span className="text-lg font-semibold text-slate-900">Md. Jahid Hasan</span>
         </a>
 
