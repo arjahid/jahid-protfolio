@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import pic from '../assets/Gemini_Generated_Image_n2287un2287un228.png'
 import cv from '../assets/Md.Jahid_Hasan(Update_CV).pdf'
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -45,13 +46,13 @@ const Hero = () => {
               Download CV
             </a>
 
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               aria-label="Open contact section"
               className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-3 rounded-md border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition text-center"
             >
               Get in touch
-            </a>
+            </Link>
           </div>
         </div>
 
