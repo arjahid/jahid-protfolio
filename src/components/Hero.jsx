@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import pic from '../assets/Gemini_Generated_Image_n2287un2287un228.png'
-import cv from '../assets/Md.Jahid_Hasan(Update_CV).pdf'
+import cv from '../assets/jahid-cv-updated_latestONe.pdf' 
 import { Link } from "react-router-dom";
 
 const Hero = () => {
