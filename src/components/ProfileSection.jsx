@@ -61,53 +61,59 @@ const ProfileSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-base-200">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-12">
-          Profile Overview
-        </h2>
+    <section className="section-shell">
+      <div className="section-panel">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="eyebrow">Profile</span>
+          <h2 className="section-title mt-4">Profile Overview</h2>
+          <p className="section-copy mt-4">
+            A compact view of the skills, education, and activities that shape the way I work.
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {/* Technical Skills */}
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+          <div className="glass-card p-6">
+            <h3 className="text-xl font-semibold text-white mb-6">
               Technical Skills
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-4 text-slate-300">
               {technicalSkills.map((skill, index) => (
                 <div key={index}>
-                  <h4 className="font-semibold text-primary mb-1">
+                  <h4 className="mb-1 font-semibold text-amber-200">
                     {skill.category}:
                   </h4>
-                  <p className="text-gray-700">{skill.items.join(", ")}</p>
+                  <p>{skill.items.join(", ")}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Extracurricular Activities */}
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+          <div className="glass-card p-6">
+            <h3 className="text-xl font-semibold text-white mb-6">
               Extracurricular Activities
             </h3>
-            <ul className="list-disc list-inside space-y-2 text-gray-700">
+            <ul className="space-y-3 text-slate-300">
               {extracurricular.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li key={index} className="rounded-2xl border border-white/5 bg-white/5 px-4 py-3">
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
 
           {/* Education */}
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+          <div className="glass-card p-6">
+            <h3 className="text-xl font-semibold text-white mb-6">
               Education
             </h3>
-            <ul className="space-y-4 text-gray-700">
+            <ul className="space-y-4 text-slate-300">
               {education.map((edu, index) => (
-                <li key={index}>
-                  <span className="font-semibold">{edu.degree}</span>
-                  <p>{edu.institution}</p>
-                  <p className="text-sm text-gray-500">{edu.year}</p>
+                <li key={index} className="rounded-2xl border border-white/5 bg-white/5 p-4">
+                  <span className="font-semibold text-white">{edu.degree}</span>
+                  <p className="mt-1">{edu.institution}</p>
+                  <p className="text-sm text-slate-400">{edu.year}</p>
                 </li>
               ))}
             </ul>

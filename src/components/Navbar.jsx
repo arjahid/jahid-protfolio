@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaBars, FaTimes, FaReact } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -14,23 +14,27 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className=" w-full z-50 backdrop-blur-sm">
-      <div className="max-w-6xl mx-auto flex justify-between items-center p-4 md:p-6 bg-white/70 dark:bg-slate-900/60 border-b border-slate-100">
-        <a href="/" className="flex items-center gap-3">
-         
-          <span className="text-lg font-semibold text-slate-900">Md. Jahid Hasan</span>
+    <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6 md:py-5">
+        <a href="/" className="group flex items-center gap-3">
+          
+          <span className="text-base font-semibold tracking-wide text-white md:text-lg">
+            Md. Jahid Hasan
+          </span>
         </a>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 text-sm font-medium items-center">
+        <ul className="hidden items-center gap-2 md:flex">
           {menuItems.map((item) => (
             <li key={item.name}>
               <NavLink
                 to={item.link}
                 end={item.link === '/'}
                 className={({ isActive }) =>
-                  `px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-primary/30 transition ${
-                    isActive ? 'text-primary font-semibold' : 'text-slate-700 hover:text-primary'
+                  `rounded-full px-4 py-2 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-amber-300/30 ${
+                    isActive
+                      ? 'bg-white/10 text-white shadow-inner shadow-white/10'
+                      : 'text-slate-300 hover:bg-white/5 hover:text-white'
                   }`
                 }
               >
@@ -41,22 +45,27 @@ const Navbar = () => {
         </ul>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden text-2xl cursor-pointer" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+        <button
+          type="button"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-xl text-white transition hover:border-amber-300/30 hover:bg-white/10 md:hidden"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+        >
           {open ? <FaTimes /> : <FaBars />}
-        </div>
+        </button>
       </div>
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white/95 border-t border-slate-100 shadow-lg">
-          <ul className="text-center py-4 space-y-3">
+        <div className="md:hidden border-t border-white/10 bg-slate-950/95 px-4 py-4 shadow-2xl shadow-slate-950/40">
+          <ul className="space-y-2">
             {menuItems.map((item) => (
               <li key={item.name}>
                 <NavLink
                   to={item.link}
                   end={item.link === '/'}
                   onClick={() => setOpen(false)}
-                  className={({ isActive }) => `block text-base transition px-4 py-3 touch-manipulation ${isActive ? 'text-primary font-semibold' : 'text-slate-700 hover:text-primary'}`}
+                  className={({ isActive }) => `block rounded-2xl px-4 py-3 text-base transition ${isActive ? 'bg-white/10 text-white' : 'text-slate-300 hover:bg-white/5 hover:text-white'}`}
                 >
                   {item.name}
                 </NavLink>

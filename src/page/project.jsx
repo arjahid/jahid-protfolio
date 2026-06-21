@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-
 const Projects = () => {
   const projects = [
     {
@@ -26,31 +24,31 @@ const Projects = () => {
   ];
 
   return (
-   <div>
-    <Navbar>
-        
-    </Navbar>
-     <section id="projects" className="py-20 bg-base-100">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-12">
-          Projects
-        </h2>
+    <section id="projects" className="section-shell">
+      <div className="section-panel">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="eyebrow">Projects</span>
+          <h2 className="section-title mt-4">Selected Work</h2>
+          <p className="section-copy mt-4">
+            A few projects that show how I approach product structure, interface polish, and practical backend work.
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-base-200 border border-gray-200 rounded-xl p-6 shadow hover:shadow-lg transition"
+              className="glass-card p-6 transition hover:-translate-y-1"
             >
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+              <h3 className="text-xl font-semibold text-white mb-3">
                 {project.title}
               </h3>
-              <p className="text-gray-600 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              <p className="mb-4 text-slate-300">{project.description}</p>
+              <div className="mb-5 flex flex-wrap gap-2">
                 {project.tech.map((techItem, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium"
+                    className="soft-chip"
                   >
                     {techItem}
                   </span>
@@ -58,7 +56,7 @@ const Projects = () => {
               </div>
               <a
                 href={project.link}
-                className="text-white bg-primary px-4 py-2 rounded-lg font-medium hover:bg-primary-focus transition"
+                className="primary-action"
               >
                 View Project
               </a>
@@ -67,7 +65,6 @@ const Projects = () => {
         </div>
       </div>
     </section>
-   </div>
   );
 };
 

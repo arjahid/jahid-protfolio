@@ -15,33 +15,34 @@ const Hero = () => {
     <header
       id="home"
       aria-labelledby="hero-heading"
-      className="flex items-center justify-center min-h-screen px-6 bg-gradient-to-b from-white via-slate-50 to-slate-100"
+      className="section-shell relative flex min-h-[calc(100vh-5rem)] items-center"
     >
-      <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="section-panel relative z-10 grid w-full grid-cols-1 items-center gap-12 overflow-hidden md:grid-cols-[1.15fr_0.85fr]">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.12),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.08),transparent_30%)]" />
+
         <div className="text-center md:text-left">
-          <p className="text-sm text-primary font-medium mb-2">Hello, I&apos;m</p>
+          <span className="eyebrow mb-5">Full Stack Developer</span>
 
           <h1
             id="hero-heading"
-            className={`text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight transition-all duration-500 transform ${
+            className={`text-4xl font-semibold tracking-tight text-white md:text-6xl md:leading-[1.05] transition-all duration-500 transform ${
               mounted ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
             }`}
           >
             Md. Jahid Hasan
           </h1>
 
-          <p className="mt-3 text-lg md:text-xl text-slate-600 font-medium">
-            Full Stack Developer — building accessible, scalable web
-            applications with a focus on maintainability and performance.
+          <p className="section-copy mx-auto mt-6 max-w-2xl md:mx-0">
+            I build clean, scalable web experiences with thoughtful interaction, strong structure, and a focus on performance. The portfolio is intentionally simple, but the details carry the design.
           </p>
 
-          <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
             <a
               href={cv}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download CV (opens in a new tab)"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-3 rounded-md bg-primary text-white font-semibold shadow hover:shadow-lg transition text-center"
+              className="primary-action w-full sm:w-auto"
             >
               Download CV
             </a>
@@ -49,24 +50,37 @@ const Hero = () => {
             <Link
               to="/contact"
               aria-label="Open contact section"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-3 rounded-md border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition text-center"
+              className="secondary-action w-full sm:w-auto"
             >
               Get in touch
             </Link>
+          </div>
+
+          <div className="mt-8 flex  flex-wrap justify-center gap-3 md:justify-start">
+            {['React.js', 'Node.js','Next.js', 'MongoDB', 'Tailwind'].map((item) => (
+              <span key={item} className="soft-chip">
+                {item}
+              </span>
+            ))}
           </div>
         </div>
 
         <div className="flex justify-center md:justify-end">
           <div
-            className={`w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56 rounded-xl overflow-hidden shadow-2xl border border-slate-100 transform transition-all duration-700 ${
+            className={`relative aspect-square w-56 overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/60 shadow-[0_30px_80px_-30px_rgba(15,23,42,0.95)] transition-all duration-700 sm:w-72 md:w-[24rem] ${
               mounted ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
           >
+            <div className="absolute inset-0 bg-gradient-to-tr from-amber-300/15 via-transparent to-sky-400/10" />
             <img
               src={pic}
               alt="Portrait of Md. Jahid Hasan — Full Stack Software Engineer"
-              className="w-full h-full object-cover"
+              className="relative z-10 h-full w-full object-cover"
             />
+            <div className="absolute bottom-4 left-4 z-20 rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 backdrop-blur-md">
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-400">Available for</p>
+              <p className="mt-1 text-sm font-semibold text-white">Freelance & collaboration</p>
+            </div>
           </div>
         </div>
       </div>
